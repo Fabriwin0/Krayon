@@ -1,261 +1,153 @@
 # Krayon
 
-A modern graphics and drawing library designed for creating vibrant visual applications with ease and efficiency.
+A modern C++20 project for visualizing and understanding 4D linear algebra concepts through interactive visualization.
 
-## Project Overview
+## Overview
 
-Krayon is a comprehensive graphics framework that provides developers with powerful tools for rendering, drawing, and visual manipulation. Whether you're building interactive applications, creative tools, or visual effects, Krayon offers a flexible and intuitive API to bring your ideas to life.
+Krayon is an educational visualization tool designed to help developers and mathematicians understand complex 4D linear algebra operations. Built with modern C++20 features, it combines mathematical rigor with intuitive visual representation.
 
-### Key Features
+## Features
 
-- **Intuitive Drawing API**: Simple yet powerful functions for creating shapes, lines, and text
-- **Advanced Graphics Support**: Full support for colors, gradients, and transformations
-- **Performance Optimized**: Efficient rendering pipeline for smooth visual experiences
-- **Cross-Platform**: Built to work seamlessly across different operating systems
-- **Extensible Architecture**: Easy to extend and customize for specific needs
+- **4D Linear Algebra Visualization**: Interactive visualization of vectors, matrices, and transformations in 4D space
+- **Advanced C++20 Implementation**: Leverages concepts, ranges, modules, and other modern C++ features
+- **Educational Focus**: Clear demonstrations of linear algebra principles in higher dimensions
+- **High-Performance Computing**: Optimized mathematical operations for efficient computation
+
+## C++20 Core Technologies
+
+### Language Features
+- **Concepts**: Type-safe templates for linear algebra operations
+- **Ranges and Views**: Efficient data processing pipelines
+- **Modules**: Organized code architecture with better encapsulation
+- **Coroutines**: Asynchronous computation support for heavy mathematical operations
+- **Structured Bindings**: Clean syntax for tuple and array decomposition
+
+### Design Patterns
+- Generic programming with advanced template metaprogramming
+- RAII principles for resource management
+- Move semantics for efficient memory handling
+
+## 4D Linear Algebra Support
+
+### Vectors and Matrices
+- 4D vector operations (dot product, cross product extensions, magnitude)
+- 4D matrix transformations and compositions
+- Quaternion representations for rotations
+- Homogeneous coordinates for projective transformations
+
+### Advanced Operations
+- Eigenvalue and eigenvector computations
+- Gram-Schmidt orthogonalization
+- QR decomposition
+- SVD (Singular Value Decomposition)
+- Tensor operations in 4D space
+
+### Visualization Capabilities
+- Real-time 3D projections of 4D objects
+- Interactive transformation controls
+- Animated demonstrations of matrix operations
+- Stereoscopic visualization support
 
 ## Getting Started
 
-### Quick Start
+### Requirements
+- C++20 compatible compiler (GCC 11+, Clang 14+, MSVC 2022+)
+- CMake 3.20 or higher
+- Graphics library (OpenGL 4.5+)
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Fabriwin0/Krayon.git
-   cd Krayon
-   ```
-
-2. **Install dependencies** (see section below)
-
-3. **Compile the project** (see Compilation Instructions)
-
-4. **Run your first example**
-   ```bash
-   ./build/krayon_example
-   ```
-
-## Dependency Setup
-
-### Prerequisites
-
-Before building Krayon, ensure you have the following installed:
-
-#### Core Requirements
-- **C++17 or later**: Krayon requires a modern C++ compiler
-- **CMake 3.16+**: For building the project
-- **Git**: For version control
-
-#### Platform-Specific Dependencies
-
-**Linux (Ubuntu/Debian)**
-```bash
-sudo apt-get update
-sudo apt-get install -y \
-  build-essential \
-  cmake \
-  libx11-dev \
-  libxrandr-dev \
-  libxinerama-dev \
-  libxcursor-dev \
-  libxi-dev \
-  pkg-config
-```
-
-**macOS**
-```bash
-# Using Homebrew
-brew install cmake
-```
-
-macOS automatically includes the required graphics libraries (Cocoa, Metal).
-
-**Windows**
-- Visual Studio 2019 or later with C++ development tools
-- CMake (download from https://cmake.org/download/)
-- Windows SDK (included with Visual Studio)
-
-#### Optional Dependencies
-
-- **OpenGL**: For enhanced graphics capabilities (usually included with system)
-- **Doxygen**: For building documentation
-- **Git LFS**: For managing large media files
-
-### Installing Dependencies
-
-#### Using Package Manager (Linux/macOS)
-
-```bash
-# macOS with Homebrew
-brew install cmake
-
-# Ubuntu/Debian
-sudo apt-get install build-essential cmake libx11-dev libxrandr-dev
-```
-
-#### Manual Installation
-
-Detailed installation guides for each dependency are available in the [DEPENDENCIES.md](DEPENDENCIES.md) file.
-
-## Compilation Instructions
-
-### Build Steps
-
-#### 1. Clone and Navigate
-```bash
-git clone https://github.com/Fabriwin0/Krayon.git
-cd Krayon
-```
-
-#### 2. Create Build Directory
+### Building
 ```bash
 mkdir build
 cd build
+cmake .. -DCMAKE_CXX_STANDARD=20
+make
 ```
 
-#### 3. Generate Build Configuration
-
-**Linux/macOS (using Unix Makefiles)**
+### Running Examples
 ```bash
-cmake ..
-```
-
-**macOS (using Xcode)**
-```bash
-cmake -G Xcode ..
-```
-
-**Windows (using Visual Studio)**
-```bash
-cmake -G "Visual Studio 17 2022" ..
-```
-
-#### 4. Build the Project
-
-**Linux/macOS**
-```bash
-make -j$(nproc)
-```
-
-**Windows**
-```bash
-cmake --build . --config Release
-```
-
-#### 5. Verify Installation
-```bash
-# Run tests (if available)
-ctest --output-on-failure
-
-# Or run an example
-./krayon_example
-```
-
-### Build Configuration Options
-
-You can customize the build with CMake flags:
-
-```bash
-# Debug build
-cmake -DCMAKE_BUILD_TYPE=Debug ..
-
-# Release build (optimized)
-cmake -DCMAKE_BUILD_TYPE=Release ..
-
-# With documentation
-cmake -DBUILD_DOCS=ON ..
-
-# With examples
-cmake -DBUILD_EXAMPLES=ON ..
-
-# With tests
-cmake -DBUILD_TESTS=ON ..
-```
-
-### Troubleshooting Build Issues
-
-**Common Issues:**
-
-1. **CMake not found**
-   - Ensure CMake is installed and added to PATH
-   - Reinstall if necessary
-
-2. **Missing dependencies**
-   - Run dependency installation commands for your platform
-   - Verify with `cmake --version`
-
-3. **Compiler errors**
-   - Ensure C++17 or later is available
-   - Update your compiler (GCC 7+, Clang 5+, MSVC 2019+)
-
-4. **Build failures on macOS**
-   - Install Xcode Command Line Tools: `xcode-select --install`
-
-For more help, see the [TROUBLESHOOTING.md](TROUBLESHOOTING.md) guide.
-
-## Usage Examples
-
-### Basic Drawing
-
-```cpp
-#include <krayon/krayon.h>
-
-int main() {
-    krayon::Window window(800, 600, "Krayon Example");
-    
-    while (window.isOpen()) {
-        window.clear(krayon::Color::White);
-        
-        // Draw a circle
-        window.drawCircle(400, 300, 50, krayon::Color::Blue);
-        
-        // Draw a rectangle
-        window.drawRect(100, 100, 200, 150, krayon::Color::Red);
-        
-        window.display();
-    }
-    
-    return 0;
-}
+./krayon_demo --sample [vector|matrix|transformation|projection]
 ```
 
 ## Project Structure
 
 ```
 Krayon/
-├── src/              # Source code
-├── include/          # Header files
-├── examples/         # Example projects
-├── tests/            # Test suite
-├── docs/             # Documentation
-├── CMakeLists.txt    # CMake configuration
-└── README.md         # This file
+├── include/
+│   ├── algebra/          # 4D linear algebra core
+│   ├── visualization/    # Graphics and rendering
+│   └── math/            # Mathematical utilities
+├── src/
+│   ├── algebra/         # Implementation files
+│   ├── visualization/   # Renderer implementation
+│   └── main.cpp
+├── examples/            # Sample programs and demonstrations
+└── tests/              # Unit tests
 ```
+
+## Example Usage
+
+```cpp
+#include <krayon/algebra/vector4d.hpp>
+#include <krayon/algebra/matrix4d.hpp>
+#include <krayon/visualization/renderer.hpp>
+
+int main() {
+    using namespace krayon;
+    
+    // Create a 4D vector
+    algebra::Vector4D v{1.0, 2.0, 3.0, 4.0};
+    
+    // Create a transformation matrix
+    algebra::Matrix4D transform = algebra::rotation_4d(angle, axis);
+    
+    // Apply transformation
+    auto result = transform * v;
+    
+    // Visualize the result
+    visualization::Renderer renderer;
+    renderer.draw_vector(result);
+    renderer.display();
+    
+    return 0;
+}
+```
+
+## C++20 Best Practices
+
+- **Template Concepts**: Type constraints ensure compile-time safety
+- **Constexpr Evaluation**: Compile-time computation for constants
+- **Aggregate Initialization**: Clean and intuitive data structure setup
+- **Lambda Enhancements**: Powerful closures with template parameters
+
+## Performance Considerations
+
+- SIMD optimizations for vector operations
+- Cache-friendly memory layouts
+- Zero-cost abstractions through compile-time specialization
+- Lazy evaluation using ranges library
 
 ## Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to Krayon.
+Contributions are welcome! Please ensure:
+1. Code follows C++20 best practices
+2. All mathematical implementations are documented
+3. New features include visualization demonstrations
+4. Unit tests are provided for new functionality
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - See LICENSE file for details
 
-## Support
+## References
 
-For issues, questions, or suggestions:
-- Open an issue on [GitHub Issues](https://github.com/Fabriwin0/Krayon/issues)
-- Check existing documentation in the [docs/](docs/) directory
-- Review [FAQ.md](FAQ.md) for common questions
+- [C++20 Standard Documentation](https://en.cppreference.com/)
+- [4D Geometry and Visualization](https://eater.net/quaternions)
+- [Modern C++ Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns_(book))
 
-## Authors
+## Contact
 
-- **Fabriwin0** - Project Creator and Maintainer
-
-## Acknowledgments
-
-- Thanks to all contributors who have helped improve Krayon
-- Special thanks to the open-source community for inspiration and support
+For questions or suggestions, please open an issue on the GitHub repository.
 
 ---
 
-**Last Updated:** January 13, 2026
-
-For the latest information and updates, visit the [Krayon GitHub Repository](https://github.com/Fabriwin0/Krayon)
+**Last Updated**: January 13, 2026
