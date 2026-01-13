@@ -1,0 +1,94 @@
+# Build directories
+build/
+cmake-build-*/
+out/
+dist/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Compiled objects and libraries
+*.o
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+
+# Intermediate build files
+*.obj
+*.exp
+*.ilk
+*.pdb
+
+# IDE configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+.DS_Store
+
+# IDE project files
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.user
+*.VC.db
+*.opendb
+
+# CLion
+.idea/
+cmake-build-debug/
+cmake-build-release/
+cmake-build-relwithdebinfo/
+cmake-build-minsizerel/
+
+# Visual Studio
+.vs/
+Debug/
+Release/
+x64/
+x86/
+
+# Qt Creator
+CMakeLists.txt.user
+CMakeLists.txt.user.*
+
+# Ninja
+.ninja_deps
+.ninja_log
+
+# Clang-Format
+.clang-format
+
+# Dependencies
+node_modules/
+vcpkg_installed/
+conan.lock
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
